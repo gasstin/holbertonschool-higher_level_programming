@@ -2,4 +2,4 @@
 # Write a program that prints the ASCII alphabet,
 # in lowercase, not followed by a new line.
 for w in range(97, 123):
-    print(chr(w), end='')
+    print("{}".format(chr(w)), end='')
