@@ -4,10 +4,15 @@
 # the last digit of the number stored in the variable number.
 import random
 number = random.randint(-10000, 10000)
-str = f"Last digit of {number} is {number % 10}"
-if (abs(number) % 10) > 5:
-    print(f"{str} and is greater than 5")
-elif (number % 10) == 0:
-    print(f"{str} and is 0")
-elif (abs(number) % 10) <= 5:
-    print(f"{str} and is less than 6 and not 0")
+str = f"Last digit of {number}"
+if number > 0:
+    if (number % 10) > 5:
+        print(f"{str} is {number % 10} and is greater than 5")
+    elif (number % 10) == 0:
+        print(f"{str} is {number % 10} and is 0")
+else:
+    number = number * -1
+    if (number % 10):
+        print(f"{str} is -{number % 10} and is less than 6 and not 0")
+    else:
+        print(f"{str} is {number % 10} and is 0")
