@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-# Write a function that prints a string
-# in uppercase followed by a new line.
+# Write a function that prints a string in uppercase followed by a new line.
 
 
 def uppercase(str):
