@@ -12,4 +12,4 @@ def uppercase(str):
         if n < (len(str) - 1):
             print("{}".format(c), end='')
         else:
-            print(f"{c}")
+            print("{}".format(c))
