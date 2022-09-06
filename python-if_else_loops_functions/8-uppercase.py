@@ -9,7 +9,7 @@ def uppercase(str):
         else:
             c = str[n]
 
-        if n < (len(str) - 1):
-            print(f"{c}", end='')
+        if n != (len(str) - 1):
+            print("{}".format(c), end='')
         else:
-            print(f"{c}")
+            print("{}".format(c))
