@@ -9,6 +9,6 @@ def uppercase(str):
         else:
             c = str[n]
         if n != (len(str) - 1):
-            print(c)
+            print("{}".format(c))
         else:
             print(c)
