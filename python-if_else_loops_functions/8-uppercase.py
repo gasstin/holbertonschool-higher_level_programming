@@ -10,6 +10,6 @@ def uppercase(str):
             c = str[n]
 
         if n < (len(str) - 1):
-            print(f"{c}", end='')
+            print('{0}'.format(c), end='')
         else:
-            print(f"{c}")
+            print('{0}'.format(c))
