@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# Write a program that imports the function def add(a, b):
-# from the file add_0.py
 
 
 def main():
