@@ -4,6 +4,7 @@
 # Numbers should be printed in ascending order, with two digits
 for n in range(0, 100):
     if n < 99:
-        print("{}, ".format(n), end="")
+        m = "{:02}, "
+        print(m.format(n), end="")
     else:
         print(n)
