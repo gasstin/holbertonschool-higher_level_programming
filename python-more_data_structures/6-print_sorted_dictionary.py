@@ -16,4 +16,4 @@ def print_sorted_dictionary(a_dictionary):
                 p += 1
             else:
                 break
-        print("{} : {}".format(aux_k[j], aux_v[p]))
+        print("{}: {}".format(aux_k[j], aux_v[p]))
