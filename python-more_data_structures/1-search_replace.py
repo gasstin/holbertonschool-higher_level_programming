@@ -8,3 +8,4 @@ def search_replace(my_list, search, replace):
         aux_list = []
         aux_list += list(map(lambda x: replace if x == search else x, my_list))
         return (aux_list)
+    return([])
