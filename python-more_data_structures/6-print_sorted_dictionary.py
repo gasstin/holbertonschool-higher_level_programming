@@ -17,3 +17,6 @@ def print_sorted_dictionary(a_dictionary):
             else:
                 break
         print("{}: {}".format(aux_k[j], aux_v[p]))
+
+        # for k, v in sorted(a_dictionary.items()):
+         #   print("{}: {}".format(k, v))
