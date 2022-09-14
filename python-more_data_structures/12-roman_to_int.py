@@ -10,11 +10,7 @@ def roman_to_int(roman_string):
         for k in range(len(roman_string)):
             result += daux[roman_string[k]]
 
-            if len(roman_string) == 2 and k:
+            if k + 1 < len(roman_string) + 1 and k - 1 >= 0:
                 if daux[roman_string[k - 1]] < daux[roman_string[k]]:
-                    result -= 2 * daux.get(roman_string[k - 1])
-            elif len(roman_string) > 2:
-                if k + 1 < len(roman_string) + 1 and k - 1 >= 0:
-                    if daux[roman_string[k - 1]] < daux[roman_string[k]]:
-                            result -= 2 * daux[roman_string[k - 1]]
+                    result -= 2 * daux[roman_string[k - 1]]
     return (result)
