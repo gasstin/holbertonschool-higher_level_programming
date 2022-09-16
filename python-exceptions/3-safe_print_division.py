@@ -4,10 +4,9 @@
 
 def safe_print_division(a, b):
     try:
-        result = 0
         result = (a/b)
-        return (result)
     except Exception:
-        return (None)
+        result = None
     finally:
         print("Inside result: {}".format(result))
+    return (result)
