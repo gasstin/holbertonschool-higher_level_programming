@@ -3,6 +3,7 @@
 
 """
 
+
 class Square:
     """This class creates a square
 
