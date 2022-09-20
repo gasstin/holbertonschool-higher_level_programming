@@ -14,7 +14,7 @@ def matrix_divided(matrix, div):
 
         args:
             matrix: is the matrix to divide
-            div: is the divisor number 
+            div: is the divisor number
         Return:
             the new matrix
     """
@@ -26,10 +26,11 @@ def matrix_divided(matrix, div):
     except TypeError:
         if type(matrix[i]) is not int and type(matrix[i]) is not float:
             return 'matrix must be a matrix (list of lists) of integers/floats'
-        if len(matrix[i]) != len(matrix[i + 1]):
+        if len(matrix[i]) != len(matrix[i]):
             return 'Each row of the matrix must have the same size'
         if type(div) is not int and type(div) is not float:
-            return 'div must be a number'
+            print('div must be a number')
+        return None
     except ZeroDivisionError:
         if not div:
             return 'division by zero'
