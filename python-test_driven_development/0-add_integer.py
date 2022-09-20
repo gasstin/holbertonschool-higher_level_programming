@@ -20,9 +20,9 @@ def add_integer(a, b=98):
             the addition of a and b
     """
     try:
-        return a + b
+        return int(a + b)
     except TypeError:
-        if b is None or ( type(b) is not int and type(b) is not float):
+        if b is None or (type(b) is not int and type(b) is not float):
             return 'b must be an integer'
         if a is None or (type(a) is not int and type(a) is not float):
             return 'a must be an integer'
