@@ -18,22 +18,19 @@ def matrix_divided(matrix, div):
         Return:
             the new matrix
     """
-    try:
-        new_m = []
-        for i in range(len(matrix)):
-            new_m += [list(map(lambda x: round((x / div), 2), matrix[i]))]
-        return new_m
-    except TypeError:
+    new_m = []
+    for i in range(len(matrix)):
+        new_m += [list(map(lambda x: round((x / div), 2), matrix[i]))]
+
         if type(matrix[i]) is not int and type(matrix[i]) is not float:
-            return 'matrix must be a matrix (list of lists) of integers/floats'
+            raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
         if len(matrix[i]) != len(matrix[i]):
-            return 'Each row of the matrix must have the same size'
-        if type(div) is not int and type(div) is not float:
-            print('div must be a number')
-        return None
-    except ZeroDivisionError:
-        if not div:
-            return 'division by zero'
+            raise TypeError('Each row of the matrix must have the same size')
+    if type(div) is not int and type(div) is not float:
+        raise TypeError('div must be a number')
+    if not div:
+        raise ZeroDivisionError('division by zero')
+    return new_m   
 
 if __name__ == "__main__":
     import doctest
