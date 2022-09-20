@@ -1,5 +1,27 @@
->>> from 0-add_integer import add_integer
->>> add_integer(2, 3)
-5
->>> add_integer(-2, 0)
--2
+===============================
+ How to Use 0-add_integer.py
+===============================
+
+This library is very simple, since it only has one function called
+``add_integer()``.
+
+Numbers
+=======
+
+``add_integer()`` returns the addition of its arguments.  For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+
+    >>> add_integer = __import__("0-add_integer").add_integer
+    >>> add_integer(2, 3)
+    5
+    >>> add_integer(-2, 0)
+    -2
+    >>> add_integer("g", 9)
+    'a must be an integer'
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(a, b=0)
+    'b must be an integer'
+

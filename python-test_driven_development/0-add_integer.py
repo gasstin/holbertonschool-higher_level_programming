@@ -20,10 +20,13 @@ def add_integer(a, b=98):
             the addition of a and b
     """
     try:
-        add = a + b
-        return int(add)
+        return a + b
     except TypeError:
-        if not isinstance(a, int) or not isinstance(a, float):
-            return f"a must be an integer"
-        if not isinstance(b, int) or not isinstance(b, float):
-            return f"b must be an integer"
+        if b is None or ( type(b) is not int and type(b) is not float):
+            return 'b must be an integer'
+        if a is None or (type(a) is not int and type(a) is not float):
+            return 'a must be an integer'
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/0-add_integer.txt")
