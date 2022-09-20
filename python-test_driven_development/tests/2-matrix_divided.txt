@@ -35,8 +35,11 @@ divided.
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
-    >>> print(matrix_divided([], 3))
+    >>> matrix = [[]]
+    >>> print(matrix_divided(matrix, div=3))
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> print(matrix_divided(matrix=[[1]], div=1))
+    [[1.0]]
 
