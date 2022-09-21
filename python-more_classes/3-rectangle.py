@@ -52,6 +52,7 @@ class Rectangle:
         if not self.height or not self.width:
             return 0
         return (2 * (self.height + self.width))
+
     def __str__(self):
         if not self.height or not self.width:
             return ""
