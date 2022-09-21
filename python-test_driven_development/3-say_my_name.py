@@ -4,7 +4,7 @@
     first_name and last_name must be strings otherwise,
     raise a TypeError exception with the message first_name
     must be a string or last_name must be a string
-    
+
     Returns the print
         '''
 
