@@ -27,14 +27,7 @@ This library is very simple, since it only has one function called
     ValueError: size must be >= 0
     >>> print_square(0)
 
-    >>> print_square(size=10)
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
