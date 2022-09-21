@@ -20,7 +20,7 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError('text must be a string')
     for i in range(len(text)):
-        if text[i - 1] in [".", "?", ":"] and text[i] == ' ':
+        if text[i - 1] in [".", "?", ":"] and text[i] in [' ', '\t']:
             continue
         else:
             print(f"{text[i]}", end='')
