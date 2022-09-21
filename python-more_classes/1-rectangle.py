@@ -20,7 +20,10 @@ class Rectangle:
         """
         self.__height = height
         self.__width = width
-
+    
+    def __str__(self):
+        return f"Rectangle({self.__width},{self.__height})"
+    
     @property
     def height(self):
         return self.__height
