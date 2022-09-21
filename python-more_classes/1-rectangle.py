@@ -18,22 +18,19 @@ class Rectangle:
                 height (int): is the height of the rectangle
 
         """
-        self.__height = height
-        self.__width = width
-    
-    def __str__(self):
-        return f"Rectangle({self.__width},{self.__height})"
-    
+        self.height = height
+        self.width = width
+
     @property
     def height(self):
         return self.__height
 
     @height.setter
     def height(self, value):
-        if type(value) is not int:
-            raise TypeError('height must be an integer')
         if value < 0:
             raise ValueError('height must be >= 0')
+        if type(value) is not int:
+            raise TypeError('height must be an integer')
         self.__height = value
 
     @property
