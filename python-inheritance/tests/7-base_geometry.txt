@@ -20,6 +20,10 @@ Numbers
 	Traceback (most recent call last):
 	...
 	ValueError: example must be greater than 0
+	>>> aux.integer_validator("example", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: example must be greater than 0
 	>>> aux.integer_validator("example", "hello")
 	Traceback (most recent call last):
 	...
@@ -32,3 +36,27 @@ Numbers
 	Traceback (most recent call last):
 	...
 	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> aux.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+	>>> aux.integer_validator("example", [2])
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
+	>>> aux.integer_validator("example", (2, 3))
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
+	>>> aux.integer_validator("example", False)
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
+	>>> aux.integer_validator("example", {1,2})
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
+	>>> aux.integer_validator("example", None)
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
