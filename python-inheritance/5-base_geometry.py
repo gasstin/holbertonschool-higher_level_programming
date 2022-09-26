@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Write an empty class BaseGeometry.
+    Write a class BaseGeometry (based on 5-base_geometry.py).
 """
 
 
