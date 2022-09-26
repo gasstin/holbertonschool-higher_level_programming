@@ -19,7 +19,7 @@ Numbers
 	>>> aux.integer_validator("example", -2)
 	Traceback (most recent call last):
 	...
-	ValueError: example must be great than 0
+	ValueError: example must be greater than 0
 	>>> aux.integer_validator("example", "hello")
 	Traceback (most recent call last):
 	...
