@@ -1,0 +1,21 @@
+===============================
+ How to Use 1-my_list.py
+===============================
+
+This library is very simple, since it only has one function called
+``print_sorted()``.
+
+Numbers
+=======
+
+``print_sorted()`` prints a sorted list of integers.
+
+::
+
+	>>> MyList = __import__("1-my_list").MyList
+	>>> MyList.print_sorted([1, 4, 2, 3, 5])
+	[1, 2, 3, 4, 5]
+	>>> MyList.print_sorted([])
+	[]
+	>>> MyList.print_sorted([1, 2, -2])
+	[-2, 1, 2]
