@@ -12,4 +12,7 @@ class MyList(list):
         """
             that prints the list, but sorted (ascending sort)
         """
+        for i in self:
+            if type(i) is not int:
+                raise TypeError('elements of the list should be of type int')
         print(sorted(self))

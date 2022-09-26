@@ -24,3 +24,7 @@ Numbers
 	[]
 	>>> MyList.print_sorted([1, 2, -2])
 	[-2, 1, 2]
+	>>> MyList.print_sorted([1, 2, "a"])
+	Traceback (most recent call last):
+	...
+	TypeError: elements of the list should be of type int
