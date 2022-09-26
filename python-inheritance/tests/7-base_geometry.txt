@@ -1,0 +1,34 @@
+===============================
+ How to Use 7-base_geometry.py
+===============================
+
+This library is very simple, has two functions:
+``area() and integer_validator()``.
+
+Numbers
+=======
+
+``integer_validator()´´ validate if value is an integer
+
+::
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> aux = BaseGeometry()
+	>>> aux.integer_validator("example", 2)
+
+	>>> aux.integer_validator("example", -2)
+	Traceback (most recent call last):
+	...
+	ValueError: example must be great than 0
+	>>> aux.integer_validator("example", "hello")
+	Traceback (most recent call last):
+	...
+	TypeError: example must be an integer
+	>>> aux.integer_validator("example")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+	>>> aux.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
