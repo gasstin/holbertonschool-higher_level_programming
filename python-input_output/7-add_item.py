@@ -12,5 +12,6 @@ filename = "add_item.json"
 aux_list = []
 if os.path.exists(filename):
     aux_list = load_from_json_file(filename)
-aux_list += sys.argv[1:len(sys.argv):1]
+for arg in sys.argv[1:]:
+    aux_list.append(arg)
 save_to_json_file(aux_list, filename)
