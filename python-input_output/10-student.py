@@ -25,6 +25,8 @@ class Student:
         self.attrs = attrs
         new_dict = self.__dict__
         aux_dict = dict()
+        if self.attrs == []:
+            return dict()
         if not self.attrs:
             del new_dict['attrs']
             return new_dict
