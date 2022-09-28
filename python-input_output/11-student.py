@@ -42,4 +42,5 @@ class Student:
             return aux_dict
 
     def reload_from_json(self, json):
-        self.__dict__ = json
+        if json:
+            self.__dict__ = json
