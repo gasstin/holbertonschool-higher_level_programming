@@ -37,3 +37,8 @@ class Test_Base(unittest.TestCase):
     def test_str(self):
         r1 = Rectangle(4, 6, 2, 1, 12)
         print(r1)
+    
+    def test_update(self):
+        r1 = Rectangle(5, 5, 5, 5, 5)
+        r1.update(89, 2, 3, 4, 6)
+        print(r1)
