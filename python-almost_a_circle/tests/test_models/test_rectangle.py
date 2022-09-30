@@ -42,3 +42,7 @@ class Test_Base(unittest.TestCase):
         r1 = Rectangle(5, 5, 5, 5, 5)
         r1.update(89, 2, 3, 4, 6)
         print(r1)
+        r1.update(x=1, height=2, y=3, width=4)
+        print(r1)
+        r1.update(x=20)
+        print(r1)

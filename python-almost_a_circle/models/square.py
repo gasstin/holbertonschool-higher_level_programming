@@ -20,11 +20,36 @@ class Square(Rectangle):
                 id(int): is the identification of square
 
         """
-        self.size = size
+        self.width = size
+        self.height = size
         self.x = x
         self.y = y
         self.id = id
-        super().__init__(self.size, self.size, self.x, self.y, self.id)
+        super().__init__(self.width, self.height, self.x, self.y, self.id)
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
+        self.width = value
+
+    @property
+    def size(self):
+        return self.height
+
+    @size.setter
+    def size(self, value):
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
+        self.height = value
 
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
