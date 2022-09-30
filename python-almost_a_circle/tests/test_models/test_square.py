@@ -17,5 +17,12 @@ class Test_Base(unittest.TestCase):
         s1 = Square(5)
         with self.assertRaises(TypeError):
             s1.size = "9"
-           
+            s1.update(1, 2, 3)
+
     
+    def test_update(self):
+        s1 = Square(5)
+        s1.update(size=7, y=1)
+        print(s1)
+        s1.update(1, 2, 3)
+        print(s1)
