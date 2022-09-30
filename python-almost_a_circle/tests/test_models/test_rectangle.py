@@ -27,3 +27,8 @@ class Test_Base(unittest.TestCase):
     def test_area(self):
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
+    
+    def test_display(self):
+        r1 = Rectangle(2, 2)
+        r1.display()
+        
