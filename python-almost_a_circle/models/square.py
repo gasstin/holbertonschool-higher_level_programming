@@ -20,12 +20,11 @@ class Square(Rectangle):
                 id(int): is the identification of square
 
         """
-        self.height = size
-        self.width = size
+        self.size = size
         self.x = x
         self.y = y
         self.id = id
-        super().__init__(self.width, self.height, self.x, self.y, self.id)
+        super().__init__(self.size, self.size, self.x, self.y, self.id)
 
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
