@@ -2,6 +2,7 @@
 """
     Write the class Square that inherits from Rectangle:
 """
+from models.base import Base
 from models.rectangle import Rectangle
 
 
@@ -19,12 +20,12 @@ class Square(Rectangle):
                 id(int): is the identification of square
 
         """
-        super().__init__(size, size, x, y, id)
-        self.__width = size
-        self.__height = size
-        self.__x = x
-        self.__y = y
+        self.height = size
+        self.width = size
+        self.x = x
+        self.y = y
         self.id = id
+        super().__init__(self.width, self.height, self.x, self.y, self.id)
 
     def __str__(self):
-        return f"[Square] ({self.id}) {self.__x}/{self.__y} - {self.__width}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
