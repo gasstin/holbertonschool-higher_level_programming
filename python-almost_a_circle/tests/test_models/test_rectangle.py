@@ -17,13 +17,15 @@ class Test_Base(unittest.TestCase):
     def test_raise_type_error(self):
         with self.assertRaises(TypeError):
             Rectangle(4, 2, "a", 0, 20)
+        with self.assertRaises(TypeError):
+            Rectangle()
     
     def test_raise_value_error(self):
         with self.assertRaises(ValueError):
             Rectangle(4, 0, 0, 0, 20)
         with self.assertRaises(ValueError):
             Rectangle(4, 3, 0, -2, 20)
-    
+
     def test_area(self):
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
@@ -31,4 +33,7 @@ class Test_Base(unittest.TestCase):
     def test_display(self):
         r1 = Rectangle(2, 2)
         r1.display()
-        
+    
+    def test_str(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        print(r1)
