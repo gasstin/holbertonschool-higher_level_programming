@@ -85,7 +85,11 @@ class Rectangle(Base):
         """
             prints the area of the rectangle with #
         """
+        for y_1 in range(self.__y):
+            print()
         for n in range(self.__height):
+            for y_1 in range(self.__y):
+                print(' ', end='')
             for m in range(self.__width):
                 print("#", end='')
             print()
