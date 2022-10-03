@@ -43,5 +43,6 @@ class Base:
             for list_i in list_objs:
                 json_s += cls.to_json_string(cls.to_dictionary(list_i))
         file_name = cls.__name__ + ".json"
+        json_s = "[" + json_s + "]"
         with open(file_name, mode="w", encoding='utf-8') as new_file:
             new_file.write(json_s)
