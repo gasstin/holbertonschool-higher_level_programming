@@ -56,3 +56,12 @@ class Base:
         json_s = "[" + json_s + "]"
         with open(file_name, mode="w", encoding='utf-8') as new_file:
             new_file.write(json_s)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            returns an instance with all attributes already set
+        """
+        dummy = cls(5, 5)
+        dummy.update(**dictionary)
+        return dummy

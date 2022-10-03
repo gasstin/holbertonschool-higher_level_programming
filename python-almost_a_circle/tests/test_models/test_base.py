@@ -40,4 +40,9 @@ class Test_Base(unittest.TestCase):
         list_input = [{'id': 89, 'width': 10, 'height': 4},{'id': 7, 'width': 1, 'height': 7}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
+    
+    def test_creates(self):
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
 
