@@ -64,6 +64,6 @@ class Test_Base(unittest.TestCase):
         list_square_output = Square.load_from_file()
     
     def test_save_to_file_s(self):
-        Square.save_to_file(None)
-        Square.save_to_file([])
+        self.assertEqual(Square.save_to_file(None), [])
+        self.assertEqual(Square.save_to_file([]), [])
         Square.save_to_file([Square(4)])

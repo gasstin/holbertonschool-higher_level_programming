@@ -34,6 +34,8 @@ class Test_Base(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(-4, 2, 0, 0, 20)
         with self.assertRaises(ValueError):
+            Rectangle(4, -2, 0, 0, 20)
+        with self.assertRaises(ValueError):
             Rectangle(4, 2, -2, 0, 20)
         with self.assertRaises(ValueError):
             Rectangle(4, 3, 0, -2, 20)
@@ -43,8 +45,10 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(r1.area(), 6)
     
     def test_display(self):
-        r1 = Rectangle(2, 2)
+        r1 = Rectangle(2, 4)
         r1.display()
+        r2 = Rectangle(2, 4, 5, 6)
+        r2.display()
         with self.assertRaises(TypeError):
             Rectangle.display()
     

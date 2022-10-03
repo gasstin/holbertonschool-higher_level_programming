@@ -47,6 +47,8 @@ class Base:
         """
             writes the JSON string representation of list_objs to a file:
         """
+        if not list_objs:
+            return []
         json_s = ""
         if list_objs:
             for list_i in list_objs:
