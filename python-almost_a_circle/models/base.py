@@ -41,6 +41,8 @@ class Base:
         json_s = ""
         if list_objs:
             for list_i in list_objs:
+                if list_i != list_objs[0]:
+                    json_s += ", "
                 json_s += cls.to_json_string(cls.to_dictionary(list_i))
         file_name = cls.__name__ + ".json"
         json_s = "[" + json_s + "]"
