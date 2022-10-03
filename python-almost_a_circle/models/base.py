@@ -37,9 +37,9 @@ class Base:
         """
             returns the list of the JSON string representation json_string
         """
-        if json_string != "":
+        if json_string:
             return json.loads(json_string)
-        return []
+        return list()
 
     @classmethod
     def save_to_file(cls, list_objs):

@@ -33,6 +33,9 @@ class Test_Base(unittest.TestCase):
     def test_save_to_file(self):
         Rectangle.save_to_file([])
 
+    def test_from_json_string_class(self):
+        self.assertTrue(Base.__dict__.get("from_json_string"), staticmethod)
+
     def test_from_json_string(self):
         list_input = [{'id': 89, 'width': 10, 'height': 4},{'id': 7, 'width': 1, 'height': 7}]
         json_list_input = Rectangle.to_json_string(list_input)
