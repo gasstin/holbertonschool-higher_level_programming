@@ -23,3 +23,6 @@ class Test_Base(unittest.TestCase):
         json_dictionary = Base.to_json_string([dictionary])
         self.assertTrue(type(json_dictionary), str)
         self.assertNotEqual(dictionary, json_dictionary)
+    
+    def test_json_s_static(self):
+        self.assertTrue(Base.__dict__.get("to_json_string"), staticmethod)
