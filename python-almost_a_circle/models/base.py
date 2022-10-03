@@ -33,6 +33,14 @@ class Base:
             json_s = json.dumps(list_dictionaries)
         return json_s
 
+    def from_json_string(json_string):
+        """
+            returns the list of the JSON string representation json_string
+        """
+        if json_string != "":
+            return json.loads(json_string)
+        return []
+
     @classmethod
     def save_to_file(cls, list_objs):
         """
