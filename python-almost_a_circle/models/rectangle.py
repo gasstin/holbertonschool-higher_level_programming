@@ -124,3 +124,12 @@ class Rectangle(Base):
                     self.__height = v
                 if k == 'id':
                     self.id = v
+
+    def to_dictionary(self):
+        dict_i = {}
+        dict_i['x'] = self.__x
+        dict_i['y'] = self.__y
+        dict_i['id'] = self.id
+        dict_i['width'] = self.__width
+        dict_i['height'] = self.__height
+        return dict_i
