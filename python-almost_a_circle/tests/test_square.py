@@ -4,20 +4,39 @@ class Test_Base(unittest.TestCase):
     
 
     def test_creates_square(self):
+        s1 = Square(5)
+        s2 =Square(5, 5)
         s3 = Square(3, 1, 3)
+        s3 = Square(3, 1, 3, 2)
         print(s3)
         print(s3.area())
-        s3.display()
+
+    def test_display(self):
+        with self.assertRaises(TypeError):
+            Square.display()
 
     def test_raise_value_error_square(self):
         with self.assertRaises(ValueError):
             Square(0, 1, 3)
+        with self.assertRaises(ValueError):
+            Square(-5)
+        with self.assertRaises(ValueError):
+            Square(5, -5)
+        with self.assertRaises(ValueError):
+            Square(5, 5, -5)
     
     def test_raise_type_error_square(self):
-        s1 = Square(5)
         with self.assertRaises(TypeError):
+            Square("b")
+        with self.assertRaises(TypeError):
+            Square(5, "b")
+        with self.assertRaises(TypeError):
+             Square(5, 5, "b")
+        # with self.assertRaises(TypeError):
+        #     Square(5, 5, 5, "b")         
+        with self.assertRaises(TypeError):
+            s1 = Square(5)
             s1.size = "9"
-            s1.update(1, 2, 3)
 
     
     def test_update(self):
@@ -28,7 +47,7 @@ class Test_Base(unittest.TestCase):
         print(s1)
 
     def test_to_dictionary(self):
-        s1 = Square(10, 2, 1)
+        s1 = Square(10, 2, 2, 2)
         s1_dictionary = s1.to_dictionary()
-        self.assertEqual(s1_dictionary, {'id': 15, 'x': 2, 'size': 10, 'y': 1})
+        self.assertEqual(s1_dictionary, {'id': 2, 'x': 2, 'size': 10, 'y': 2})
     

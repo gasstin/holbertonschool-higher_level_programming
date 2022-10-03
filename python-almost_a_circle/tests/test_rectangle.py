@@ -16,13 +16,25 @@ class Test_Base(unittest.TestCase):
     
     def test_raise_type_error(self):
         with self.assertRaises(TypeError):
+            Rectangle(4, "b")
+        with self.assertRaises(TypeError):
+            Rectangle("b", 2)
+        with self.assertRaises(TypeError):
             Rectangle(4, 2, "a", 0, 20)
+        with self.assertRaises(TypeError):
+            Rectangle(4, 2, 0, "b", 20)
         with self.assertRaises(TypeError):
             Rectangle()
     
     def test_raise_value_error(self):
         with self.assertRaises(ValueError):
+            Rectangle(0, 2, 0, 0, 20)
+        with self.assertRaises(ValueError):
             Rectangle(4, 0, 0, 0, 20)
+        with self.assertRaises(ValueError):
+            Rectangle(-4, 2, 0, 0, 20)
+        with self.assertRaises(ValueError):
+            Rectangle(4, 2, -2, 0, 20)
         with self.assertRaises(ValueError):
             Rectangle(4, 3, 0, -2, 20)
 
@@ -33,6 +45,13 @@ class Test_Base(unittest.TestCase):
     def test_display(self):
         r1 = Rectangle(2, 2)
         r1.display()
+        with self.assertRaises(TypeError):
+            Rectangle.display()
+    
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 0, 0, 20)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'height': 2, 'id': 20, 'width': 10, 'x': 0, 'y': 0})
     
     def test_str(self):
         r1 = Rectangle(4, 6, 2, 1, 12)

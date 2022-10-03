@@ -1,6 +1,8 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
+
 class Test_Base(unittest.TestCase):
     
     def test_change(self):
@@ -32,6 +34,12 @@ class Test_Base(unittest.TestCase):
     
     def test_save_to_file(self):
         Rectangle.save_to_file([])
+        Rectangle.save_to_file(None)
+        Rectangle.save_to_file([Rectangle(4, 6, 0, 0, 10)])
+        # Square
+        Square.save_to_file(None)
+        Square.save_to_file([])
+        Square.save_to_file([Square(4)])
 
     def test_from_json_string_class(self):
         self.assertTrue(Base.__dict__.get("from_json_string"), staticmethod)
@@ -53,4 +61,11 @@ class Test_Base(unittest.TestCase):
         list_rectangles_input = [r1, r2]
         Rectangle.save_to_file(list_rectangles_input)
         list_rectangles_output = Rectangle.load_from_file()
+        # Square
+        Square.load_from_file()
+        s1 = Square(4)
+        s2 = Square(6, 4, 4)
+        list_square_input = [s1, s2]
+        Square.save_to_file(list_square_input)
+        list_square_output = Square.load_from_file()
 
