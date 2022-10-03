@@ -126,6 +126,9 @@ class Rectangle(Base):
                     self.id = v
 
     def to_dictionary(self):
+        """
+            returns the dictionary representation of a Rectangle
+        """
         dict_i = {}
         dict_i['x'] = self.__x
         dict_i['y'] = self.__y
