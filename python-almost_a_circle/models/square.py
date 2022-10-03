@@ -20,11 +20,7 @@ class Square(Rectangle):
                 id(int): is the identification of square
 
         """
-        self.width = size
-        self.x = x
-        self.y = y
-        self.id = id
-        super().__init__(self.width, self.width, self.x, self.y, self.id)
+        super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
