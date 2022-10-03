@@ -63,4 +63,16 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(r1.id, 89)
         r1.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r1.x, 1)
-        
+
+    def test_load_from_file_r(self):
+        Rectangle.load_from_file()
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+
+    def test_save_to_file_r(self):
+        Rectangle.save_to_file([])
+        Rectangle.save_to_file(None)
+        Rectangle.save_to_file([Rectangle(4, 6, 0, 0, 10)])

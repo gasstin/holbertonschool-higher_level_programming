@@ -5,8 +5,11 @@ class Test_Base(unittest.TestCase):
 
     def test_creates_square(self):
         s1 = Square(5)
+        self.assertEqual(s1.size, 5)
         s2 =Square(5, 5)
+        self.assertEqual(s2.x, 5)
         s3 = Square(3, 1, 3)
+        self.assertEqual(s3.y, 3)
         s3 = Square(3, 1, 3, 2)
         print(s3)
         print(s3.area())
@@ -51,3 +54,16 @@ class Test_Base(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         self.assertEqual(s1_dictionary, {'id': 2, 'x': 2, 'size': 10, 'y': 2})
     
+    def test_load_from_file_s(self):
+     # Square
+        Square.load_from_file()
+        s1 = Square(4)
+        s2 = Square(6, 4, 4)
+        list_square_input = [s1, s2]
+        Square.save_to_file(list_square_input)
+        list_square_output = Square.load_from_file()
+    
+    def test_save_to_file_s(self):
+        Square.save_to_file(None)
+        Square.save_to_file([])
+        Square.save_to_file([Square(4)])
