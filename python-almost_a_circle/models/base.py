@@ -3,6 +3,7 @@
     Write the first class Base.
 """
 import json
+import os.path
 
 
 class Base:
@@ -68,3 +69,17 @@ class Base:
             dummy = cls(5, 5)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            returns a list of instances
+        """
+        file_name = cls.__name__ + ".json"
+        list_final = []
+        if os.path.exists(file_name):
+            with open(file_name, "r") as my_file:
+                list_aux = cls.from_json_string(my_file.read())
+                for ll in list_aux:
+                    list_final += [cls.create(**ll)]
+        return list_final
