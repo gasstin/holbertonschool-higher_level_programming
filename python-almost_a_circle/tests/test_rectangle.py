@@ -82,6 +82,6 @@ class Test_Base(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
 
     def test_save_to_file_r(self):
-        Rectangle.save_to_file([])
-        Rectangle.save_to_file(None)
+        self.assertEqual(Rectangle.save_to_file(None), 0)
+        self.assertEqual(Rectangle.save_to_file([]), 0)
         Rectangle.save_to_file([Rectangle(4, 6, 0, 0, 10)])

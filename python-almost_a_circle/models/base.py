@@ -58,6 +58,7 @@ class Base:
         json_s = "[" + json_s + "]"
         with open(file_name, mode="w", encoding='utf-8') as new_file:
             new_file.write(json_s)
+        return 0
 
     @classmethod
     def create(cls, **dictionary):
