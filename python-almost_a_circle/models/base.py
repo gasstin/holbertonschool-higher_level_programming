@@ -3,6 +3,7 @@
     Write the first class Base.
 """
 import json
+import csv
 import os.path
 
 
@@ -47,8 +48,6 @@ class Base:
         """
             writes the JSON string representation of list_objs to a file:
         """
-        if not list_objs:
-            return []
         json_s = ""
         if list_objs:
             for list_i in list_objs:
@@ -82,6 +81,51 @@ class Base:
         if os.path.exists(file_name):
             with open(file_name, "r") as my_file:
                 list_aux = cls.from_json_string(my_file.read())
+                for ll in list_aux:
+                    list_final += [cls.create(**ll)]
+        return list_final
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            serialize in CSV format
+        """
+        file_name = cls.__name__ + ".csv"
+        if not list_objs:
+            return []
+        else:
+            list_i = []
+            for l in list_objs:
+                #if l != list_objs[0]:
+                #    list_i += ", "
+                list_i.append(cls.to_json_string(cls.to_dictionary(l)))
+            print(list_i)
+            with open(file_name, mode="w", newline='') as csvfile:
+                # if cls.__name__ == 'Rectangle':
+                #     fieldnames = ['id', 'width', 'height', 'x', 'y']
+                #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                #     writer.writeheader()
+                #     writer.writerow(list_i)
+                writer = csvfile.write(str(list_i))
+                #writer.writerow([list_i])
+                # if cls.__name__ == 'Square':
+                #     fieldnames = ['id', 'size', 'x', 'y']
+                #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                #     writer.writeheader()
+                #     writer.writerow(list_i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            deserialize in CSV format
+        """
+        file_name = cls.__name__ + ".csv"
+        list_final = []
+        if os.path.exists(file_name):
+            with open(file_name, "r") as csv_my_file:
+                list_aux = csv.DictReader(csv_my_file)
                 for ll in list_aux:
                     list_final += [cls.create(**ll)]
         return list_final
