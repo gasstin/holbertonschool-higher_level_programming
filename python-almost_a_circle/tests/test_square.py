@@ -14,9 +14,19 @@ class Test_Base(unittest.TestCase):
         print(s3)
         print(s3.area())
 
-    def test_display(self):
+    def test_str_(self):
+        self.assertEqual(Square(2, 0, 0, 20).__str__(), "[Square] (20) 0/0 - 2")
+
+    def test_display_s(self):
         with self.assertRaises(TypeError):
             Square.display()
+        with self.assertRaises(TypeError):
+            Square(4, None).display()
+        with self.assertRaises(TypeError):
+            Square.display()
+        s2 = Square(2, 4, 0, 20)
+        self.assertEqual(s2.display(), 0)
+        self.assertEqual(Square(5, 4, 40).display(), 0)
 
     def test_raise_value_error_square(self):
         with self.assertRaises(ValueError):

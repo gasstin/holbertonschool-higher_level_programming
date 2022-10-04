@@ -2,6 +2,9 @@ import unittest
 from models.rectangle import Rectangle
 class Test_Base(unittest.TestCase):
     
+    def test_str_(self):
+        self.assertEqual(Rectangle(2, 2, 0, 0, 20).__str__(), "[Rectangle] (20) 0/0 - 2/2")
+
     def test_check_position(self):
         r2 = Rectangle(4, 2, 0, 0, 20)
         self.assertEqual(r2.x, 0)
@@ -45,12 +48,14 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(r1.area(), 6)
     
     def test_display(self):
-        r1 = Rectangle(2, 4)
-        r1.display()
-        r2 = Rectangle(2, 4, 5, 6)
-        r2.display()
+        with self.assertRaises(TypeError):
+            Rectangle(2, 4, None).display()
         with self.assertRaises(TypeError):
             Rectangle.display()
+        r2 = Rectangle(2, 4)
+        self.assertEqual(r2.display(), 0)
+        self.assertEqual(Rectangle(5, 4, 40).display(), 0)
+       
     
     def test_to_dictionary(self):
         r1 = Rectangle(10, 2, 0, 0, 20)
