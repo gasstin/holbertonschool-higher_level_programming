@@ -57,8 +57,9 @@ class Square(Rectangle):
                 if k == 'y':
                     self.y = v
                 if k == 'size':
-                    self.width = v
                     self.size = v
+                    self.width = v
+                    self.height = v
                 if k == 'id':
                     self.id = v
 

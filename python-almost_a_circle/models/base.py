@@ -49,7 +49,7 @@ class Base:
             writes the JSON string representation of list_objs to a file:
         """
         json_s = ""
-        if list_objs:
+        if list_objs or list_objs is not None:
             for list_i in list_objs:
                 if list_i != list_objs[0]:
                     json_s += ", "
@@ -85,3 +85,41 @@ class Base:
                 for ll in list_aux:
                     list_final += [cls.create(**ll)]
         return list_final
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            serialize in CSV format
+        """
+        file_name = cls.__name__ + ".csv"
+        if not list_objs:
+            return []
+        else:
+            list_i = []
+            for l_aux in list_objs:
+                dict_i_aux = cls.to_dictionary(l_aux)
+                list_i.append(dict_i_aux)
+            with open(file_name, mode="w", newline='') as csvfile:
+                if cls.__name__ == 'Rectangle':
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == 'Square':
+                    fieldnames = ['id', 'size', 'x', 'y']
+
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for d in list_i:
+                    writer.writerow(d)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            deserialize in CSV format
+        """
+        if os.path.exists(cls.__name__ + ".csv"):
+            with open(cls.__name__ + ".csv", newline='') as csv_my_file:
+                fields = ['id', 'width', 'height', 'x', 'y']\
+                         if cls.__name__ == 'Rectangle'\
+                         else ['id', 'size', 'x', 'y']
+                list_final = [cls.create(**({key: int(value)
+                              for key, value in ll.items()}))
+                              for ll in csv.DictReader(csv_my_file, fields)]
+        return list_final if not None else []
