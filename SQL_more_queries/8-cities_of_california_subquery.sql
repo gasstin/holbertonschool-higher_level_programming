@@ -4,6 +4,7 @@ USE hbtn_0d_usa;
 SELECT id,name
 FROM cities
 WHERE name = 
-    (SELECT name
+    (SELECT id
     FROM states
-    WHERE name = 'California');
+    WHERE id = 1)
+ORDER BY id DESC;
