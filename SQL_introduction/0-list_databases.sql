@@ -1,3 +1,3 @@
---task 0
+-- task 0
 -- list the databases
 SELECT *
