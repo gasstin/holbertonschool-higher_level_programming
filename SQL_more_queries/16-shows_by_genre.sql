@@ -15,4 +15,4 @@ LEFT JOIN tv_genres
 ON tv_show_genres.genre_id = tv_genres.id
 -- solo los generos de los programas que
 -- se encuentran en la tabla de generos
-ORDER BY tv_shows.title ASC;
+ORDER BY tv_shows.title, tv_genres.name ASC;
