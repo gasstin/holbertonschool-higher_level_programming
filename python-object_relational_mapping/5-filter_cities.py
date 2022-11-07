@@ -15,11 +15,16 @@ def main():
     cursor_aux = db.cursor()
     cursor_aux.execute("SELECT cities.id, cities.name, states.name\
         FROM cities INNER JOIN states ON cities.state_id = states.id\
-        WHERE name = '{}' ORDER BY cities.id ASC".format(state_name_searched))
+        WHERE states.name = '{}' ORDER BY cities.id ASC".format(state_name_searched))
     rows = cursor_aux.fetchall()
+    cnt = 0
     for r in rows:
         if r[1] == state_name_searched:
-            print(f"{r}, ", end='')
+            print(f"{r}", end='')
+        if cnt < len(rows):
+            print(", ")
+        else:
+            print()
     print()
     cursor_aux.close()
     db.close()
