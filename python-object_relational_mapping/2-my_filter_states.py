@@ -12,10 +12,12 @@ def main():
     db = connect(host="localhost", port=3306, user=mysql_username,
                  passwd=mysql_password, db=database_name, charset="utf8")
     cursor_aux = db.cursor()
-    cursor_aux.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name_searched))
+    cursor_aux.execute("SELECT * FROM states WHERE name = '{}'\
+        ORDER BY id ASC".format(state_name_searched))
     rows = cursor_aux.fetchall()
     for r in rows:
-        print(r)
+        if r[1] == state_name_searched:
+            print(r)
     cursor_aux.close()
     db.close()
 
