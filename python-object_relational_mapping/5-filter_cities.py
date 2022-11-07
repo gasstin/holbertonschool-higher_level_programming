@@ -15,13 +15,14 @@ def main():
     cursor_aux = db.cursor()
     cursor_aux.execute("SELECT cities.id, cities.name, states.name\
         FROM cities INNER JOIN states ON cities.state_id = states.id\
-        WHERE states.name = '{}' ORDER BY cities.id ASC".format(state_name_searched))
+        WHERE states.name = '{}' ORDER BY \
+        cities.id ASC".format(state_name_searched))
     rows = cursor_aux.fetchall()
     cnt = 0
     for r in rows:
         if r[2] == state_name_searched:
             print(f"{r[1]}", end='')
-        if cnt < len(rows):
+        if cnt < len(rows) - 1:
             print(", ", end='')
         cnt += 1
     print()
