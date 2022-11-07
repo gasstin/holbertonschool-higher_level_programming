@@ -2,7 +2,7 @@
 """
     task 6
     Write a python file that contains the class definition
-    of a State and an instance Base = declarative_base()
+    of a State and an instance Base = declarative_base().
 """
 
 
