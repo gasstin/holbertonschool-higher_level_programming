@@ -15,7 +15,8 @@ def main():
     cursor_aux.execute("SELECT * FROM states WHERE name = 'N' ORDER BY id ASC")
     rows = cursor_aux.fetchall()
     for r in rows:
-        print(r)
+        if r[1][0] == 'N': # only the names with 'N'
+            print(r)
     cursor_aux.close()
     db.close()
 
