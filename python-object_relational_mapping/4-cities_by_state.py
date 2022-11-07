@@ -11,8 +11,8 @@ def main():
     db = connect(host="localhost", port=3306, user=mysql_username,
                  passwd=mysql_password, db=database_name, charset="utf8")
     cursor_aux = db.cursor()
-    cursor_aux.execute("SELECT * FROM cities INNER JOIN states\
-        ON state_id.cities=id.cities ORDER BY cities.id ASC")
+    cursor_aux.execute("SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states\
+        ON cities.state_id = states.id ORDER BY cities.id ASC")
     rows = cursor_aux.fetchall()
     for r in rows:
         print(r)
