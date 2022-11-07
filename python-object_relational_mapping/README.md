@@ -1,0 +1,1 @@
+In this project I'll use an ORM (Object Relational Mapper)
