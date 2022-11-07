@@ -9,7 +9,7 @@ def main():
     from MySQLdb import connect
 
     db = connect(host="localhost", port=3306, user=mysql_username,
-                 passwd=mysql_password, db=database_name, charset="utf-8")
+                 passwd=mysql_password, db=database_name, charset="utf8")
     cursor_aux = db.cursor()
     cursor_aux.execute("SELECT * FROM states ORDER BY id ASC")
     rows = cursor_aux.fetchall()
