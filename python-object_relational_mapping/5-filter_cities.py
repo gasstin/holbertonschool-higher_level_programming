@@ -19,12 +19,11 @@ def main():
     rows = cursor_aux.fetchall()
     cnt = 0
     for r in rows:
-        if r[1] == state_name_searched:
-            print(f"{r}", end='')
+        if r[2] == state_name_searched:
+            print(f"{r[1]}", end='')
         if cnt < len(rows):
-            print(", ")
-        else:
-            print()
+            print(", ", end='')
+        cnt += 1
     print()
     cursor_aux.close()
     db.close()
