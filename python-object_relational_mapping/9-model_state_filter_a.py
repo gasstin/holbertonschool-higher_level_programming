@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    for state in session.query(State).order_by(State.id)\
-            .filter('a' in State.name):
-        print(f"{state.id}: {state.name}")
+    for state in session.query(State).order_by(State.id).all():
+        if 'a' in state.name:
+            print(f"{state.id}: {state.name}")
     session.close()
