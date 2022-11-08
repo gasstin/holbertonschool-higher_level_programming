@@ -22,7 +22,6 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    session.query(State).filter(State.name.ilike("%a%")).\
-        delete(synchronize_session='fetch')
+    session.query(State).filter(State.name.ilike("%a%")).delete(synchronize_session='fetch')
     session.commit()
     session.close()
