@@ -22,8 +22,10 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    session.add(name="Louisiana")
+    louisiana = State(name="Louisiana")
+    session.add(louisiana)
     session.commit()
-    state = session.query(State).filter_by(name="Louisiana")
-    print(f"{state.id}")
+    for state in session.query(State).order_by(State.id).\
+            filter_by(name="Louisiana"):
+        print(f"{state.id}")
     session.close()
