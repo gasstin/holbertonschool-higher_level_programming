@@ -14,17 +14,14 @@ if __name__ == "__main__":
     mysql_username = argv[1]
     mysql_password = argv[2]
     database_name = argv[3]
-    
-    engine = create_engine('mysql+mysqldb://\
-            {}:{}@localhost:3306/{}'.format(mysql_username,
-                    mysql_password, database_name), pool_pre_ping=True,)
-    Base.metadata.create_all(engine) # Create an engine
-    
-    session = Session(engine) # Create a session
+
+    engine = create_engine(f'mysql+mysqldb://\
+{mysql_username}:{mysql_password}@localhost:3306/{database_name}',
+                           pool_pre_ping=True,)
+    Base.metadata.create_all(engine)  # Create an engine
+
+    session = Session(engine)  # Create a session
+
     for state in session.query(State).order_by(State.id).all():
         print(f"{state.id}: {state.name}")
     session.close()
-
-
-
-
