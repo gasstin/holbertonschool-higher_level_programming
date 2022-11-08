@@ -23,11 +23,12 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    find = 0
+    found = 0
     for state in session.query(State).order_by(State.id)\
             .filter_by(name=state_name_searched):
-        print(f"{state.id}")
-        find = 1
-    if find:
+        if state:
+            print(f"{state.id}")
+            found = 1
+    if not found:
         print("Not found")
     session.close()
