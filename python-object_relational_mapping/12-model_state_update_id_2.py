@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-    task 9
-    Write a script that lists all State objects that contain
-    the letter a from the database hbtn_0e_6_usa
+    task 12
+    Write a script that changes the name of a State object 
+    from the database hbtn_0e_6_usa
 """
 
 from sqlalchemy import create_engine
@@ -22,8 +22,7 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    # session.query(State).order_by(State.id).filter(State.name.ilike("a%"))
-    for state in session.query(State).order_by(State.id).all():
-        if 'a' in state.name:
-            print(f"{state.id}: {state.name}")
+    session.query(State).filter(State.id == '2').\
+        update({"name": "New Mexico"}, synchronize_session='fetch')
+    session.commit()
     session.close()
