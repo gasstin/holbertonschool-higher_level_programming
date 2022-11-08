@@ -22,8 +22,7 @@ if __name__ == "__main__":
 
     session = Session(engine)  # Create a session
 
-    # session.query(State).order_by(State.id).filter(State.name.ilike("a%"))
-    for state in session.query(State).order_by(State.id).all():
+    for state in session.query(State).all():
         if 'a' in state.name:
             session.delete(state)
             session.commit()
