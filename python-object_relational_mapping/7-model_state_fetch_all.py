@@ -5,7 +5,8 @@
     of a State and an instance Base = declarative_base().
 """
 
-from sqlalchemy import create_engine, Session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 from sys import argv
 
@@ -16,9 +17,11 @@ if __name__ == "__main__":
     
     engine = create_engine(f'mysql+mysqldb://\
             {mysql_username}:{mysql_password}@localhost:3306/{database_name}', pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine) # Create an engine
     
-    session = Session(engine)
+    Session = sessionmaker(bind=engine) # Create a class session
+    
+    session = Session(engine) # Create a session
     for state in session.query(State).order_by(State.id).all():
         print("{}: {}".format(state.id, state.name))
     session.close()
