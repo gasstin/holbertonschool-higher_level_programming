@@ -15,6 +15,8 @@ if __name__ == "__main__":
     mysql_password = argv[2]
     database_name = argv[3]
     state_name_searched = argv[4]
+    if ';' in state_name_searched:
+        exit()
 
     engine = create_engine(f'mysql+mysqldb://\
 {mysql_username}:{mysql_password}@localhost:3306/{database_name}',
