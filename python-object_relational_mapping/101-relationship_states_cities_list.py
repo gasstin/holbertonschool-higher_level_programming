@@ -26,8 +26,6 @@ if __name__ == "__main__":
 
     for state in session.query(State).order_by(State.id).all():
         print(f"{state.id}: {state.name}")
-        #  for city in session.query(City).order_by(City.id).all():
         for city in state.cities:
-            #if state.id == city.state_id:
             print(f"\t{city.id}: {city.name}")
     session.close()
