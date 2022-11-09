@@ -17,10 +17,10 @@ class State(Base):
     """creates a state
 
     Args:
-        Base (_type_): _description_
+        id, name, cities
     """
     __tablename__ = 'states'
     id = Column(Integer, nullable=False, unique=True,
                 autoincrement=True, primary_key=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City")
+    cities = relationship("City", backref="state")
