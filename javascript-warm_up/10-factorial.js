@@ -5,8 +5,11 @@
 require('process');
 
 function factorialTask (a) {
+  if (a == null) {
+    return 1;
+  }
   let result;
-  if ((a === null) | (a === 1)) {
+  if (a === 1) {
     result = 1;
   } else {
     result = a * factorialTask(a - 1);
