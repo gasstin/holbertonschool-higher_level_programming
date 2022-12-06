@@ -5,13 +5,9 @@ Write a class Square that defines a square and inherits from Rectangle:
 Create an instance method called charPrint(c) that prints the rectangle using the character c
 If c is undefined, use the character X
 */
-const Rectangle = require('./4-rectangle');
+const SquareP = require('./5-square');
 
-class Square extends Rectangle {
-  constructor (size) {
-    super(size, size);
-  }
-
+class Square extends SquareP {
   charPrint (c) {
     if (c === undefined) {
       c = 'X';
