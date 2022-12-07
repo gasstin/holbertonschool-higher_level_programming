@@ -1,0 +1,11 @@
+#!/usr/bin/node
+/* task 10
+    Write a function that converts a number from base 10
+    to another base passed as argument:
+*/
+
+exports.converter = function (base) {
+  return function (NumberToTransform) {
+    return NumberToTransform.toString(base);
+  };
+};
