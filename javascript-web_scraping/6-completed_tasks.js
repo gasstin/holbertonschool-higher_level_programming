@@ -6,7 +6,12 @@ completed by user id.
 require('process');
 const request = require('request');
 
-const url = process.argv[2] + '/?completed=true';
+let url = '';
+if (process.argv[2] === 'https://jsonplaceholder.typicode.com/todos') {
+  url = process.argv[2] + '/?completed=true';
+} else {
+  url = process.argv[2];
+}
 const finalDict = {};
 request(url, function (error, response, body) {
   if (error) {
