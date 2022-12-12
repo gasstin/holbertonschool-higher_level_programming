@@ -12,10 +12,14 @@ request(url, function (error, response, body) {
     console.error(error); // print error if occurs
   } else {
     JSON.parse(body).characters.forEach(element => {
-      request(element, function(error, response, body) {
-        console.log(JSON.parse(body).name);
+      request(element, function (error, response, body) {
+        if (error) {
+          console.error(error); // print error if occurs
+        } else {
+          console.log(JSON.parse(body).name);
+        }
       }
-      )
+      );
     });
   }
 });
