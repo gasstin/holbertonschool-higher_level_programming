@@ -11,9 +11,11 @@ in the HTML element with id `hello`
 imported from the `<head>` tag
 */
 
-fetch('https://stefanbohacek.com/hellosalut/?lang=fr')
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('https://stefanbohacek.com/hellosalut/?lang=fr')
   .then((response) => response.json())
   .then((data) => {
     const helloContent = document.getElementById('hello');
     helloContent.textContent = data.hello;
   });
+})
