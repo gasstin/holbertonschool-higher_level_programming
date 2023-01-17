@@ -9,8 +9,8 @@
 
 
 if __name__ == "__main__":
-    from requests import request
+    from requests import get
     from sys import argv
 
-    with request(url=argv[1], method='GET') as response:
-        print(response.headers['X-Request-Id'])
+    req = get(argv[1])
+    print(req.headers.get('X-Request-Id'))
