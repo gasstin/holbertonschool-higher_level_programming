@@ -13,4 +13,4 @@ if __name__ == "__main__":
     from sys import argv
 
     with request(url=argv[1], method='GET') as response:
-        print(response['X-Request-Id'])
+        print(response.headers['X-Request-Id'])
