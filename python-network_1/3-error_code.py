@@ -12,9 +12,8 @@ if __name__ == "__main__":
 
     url = argv[1]
 
-    new_request = request.Request(url)
     try:
-        response = request.urlopen(url)
-        print(response.read().decode('utf8'))
+        with request.urlopen(url) as response:
+            print(response.read().decode('utf8'))
     except error.HTTPError as err:
-        print(f"Error code: {err.code}")
+        print(f"Error code: {str(err)}")
